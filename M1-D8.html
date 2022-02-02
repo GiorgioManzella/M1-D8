@@ -1,14 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       .myHeading {
         color: red;
       }
+      .li1 {
+        background-color: green;
+      }
     </style>
+    <title>Document</title>
   </head>
   <body>
-    <div>
-      <h1>This is the title of the page</h1>
+    <div id="1div">
+      <h1 id="H1">This is the title of the page</h1>
       <h2>This is the subtitle of the page</h2>
     </div>
 
@@ -30,7 +38,7 @@
       <a href="strive.school">This link goes to Strive School</a>
 
       <div>
-        <p>This text is just for the exercise</p>
+        <p id="p">This text is just for the exercise</p>
       </div>
 
       <div>
@@ -43,7 +51,7 @@
     </div>
 
     <div>
-      <p>And this text is just for the exercise too!</p>
+      <p id="p">And this text is just for the exercise too!</p>
       <h2 style="color: red">
         Save this page on your computer and open it with VSCode to get the
         questions!
@@ -53,9 +61,9 @@
       /* EXERCISE 1
        Write a function for changing the title of the document in something else.
       */
-
-      const changeTitle = function (newTitle) {
-        //
+      const changeTitle = function () {
+        let newTitle = document.getElementById("H1");
+        newTitle.innerText = "I got changed";
       };
 
       /* EXERCISE 2
@@ -63,7 +71,8 @@
       */
 
       const addClassToTitle = function () {
-        //
+        let newClass = document.getElementById("H1");
+        newClass.classList.add("myHeading");
       };
 
       /* EXERCISE 3
@@ -71,7 +80,10 @@
       */
 
       const changePcontent = function () {
-        //
+        let changeP = document.getElementsByTagName("p");
+        for (p of changeP) {
+          p.innerText = "I got changed";
+        }
       };
 
       /* EXERCISE 4
@@ -79,7 +91,10 @@
       */
 
       const changeUrls = function () {
-        //
+        let changehref = document.getElementsByTagName("a");
+        for (a of changehref) {
+          a.innerText = "https://www.google.com";
+        }
       };
 
       /* EXERCISE 5
@@ -87,15 +102,22 @@
       */
 
       const addToTheSecond = function (content) {
-        //
+        let addlist = document.createElement("li");
+        let text1 = document.createTextNode("4rd");
+        addlist.appendChild(text1);
+        let list2 = document.getElementById("secondList");
+        list2.appendChild(addlist);
       };
-
       /* EXERCISE 6
        Write a function for adding a second paragraph to the first div.
       */
 
       const addParagraph = function (content) {
-        //
+        let addp = document.createElement("p");
+        let text = document.createTextNode("new paragraph");
+        addp.appendChild(text);
+        let p = document.getElementById("1div");
+        p.appendChild(addp);
       };
 
       /* EXERCISE 7
@@ -103,7 +125,8 @@
       */
 
       const firstUlDisappear = function () {
-        //
+        let delLi = document.getElementById("firstList");
+        delLi.remove("firstList");
       };
 
       /* EXERCISE 8
@@ -111,15 +134,19 @@
       */
 
       const paintItGreen = function () {
-        //
+        let backgroundC = document.getElementsByTagName("li");
+        for (li of backgroundC) {
+          li.classList.add("li1");
+        }
       };
 
       /* EXERCISE 9
        Make the heading of the page change color every time the user clicks on it.
       */
 
-      const makeItClickable = function () {
-        //
+      const makeItClickable = function (event, color) {
+        let changeClick = event.target;
+        changeClick.style.color = color;
       };
 
       /* EXERCISE 10
@@ -141,9 +168,7 @@
        Create a welcome alert message when the page successfully loads.
       */
 
-      window.onload = function () {
-        //
-      };
+      //
 
       /* EXERCISE 13
        Use HTML5 tags to properly provide semantic meaning to the different portions of the page.
