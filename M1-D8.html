@@ -81,7 +81,7 @@
 
       const changePcontent = function () {
         let changeP = document.getElementsByTagName("p");
-        for (p of changeP) {
+        for (let p of changeP) {
           p.innerText = "I got changed";
         }
       };
@@ -93,7 +93,7 @@
       const changeUrls = function () {
         let changehref = document.getElementsByTagName("a");
         for (a of changehref) {
-          a.innerText = "https://www.google.com";
+          a.href = "https://www.google.com";
         }
       };
 
@@ -114,7 +114,7 @@
 
       const addParagraph = function (content) {
         let addp = document.createElement("p");
-        let text = document.createTextNode("new paragraph");
+        let text = document.createTextNode("new paragraph"); // ("content")
         addp.appendChild(text);
         let p = document.getElementById("1div");
         p.appendChild(addp);
